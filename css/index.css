@@ -1,0 +1,17 @@
+.container-lg {
+  height: 30vh;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.masthead {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  //background: no-repeat center center;
+  margin-bottom: 50px;
+}
