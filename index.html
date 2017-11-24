@@ -12,7 +12,9 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <script type="text/javascript" src="node_modules/paper/dist/paper-full.js"></script>
+    <script type="text/paperscript" src="js/paper.js" canvas="myCanvas"></script>
+    <link rel="stylesheet" href="css/index.css">
     <!-- Custom styles for this template -->
     <style>
       body {
@@ -57,7 +59,77 @@
         </div>
       </div>
     </nav>
+    <canvas id="myCanvas" style="width: 100%; height:100%" resize>
 
+    </canvas>
+    <div id="needfinding" class="infoBar">
+
+      <div class="infoBar-content">
+        <span class="closeButton"> &times; </span>
+        <h2> needfinding </h2>
+        <!-- <img src="img/needfinding.png"></img> -->
+        <a href="file/assign1-deck.pdf"> slides </a>
+      </div>
+
+    </div>
+    <div id="exp-proto" class="infoBar">
+
+      <div class="infoBar-content">
+          <span class="closeButton"> &times; </span>
+        <h2> experience proto </h2>
+        <a href="file/assign2-deck.pdf"> slides </a>
+        <a href="file/assign2-writeup.pdf"> write-up </a>
+      </div>
+    </div>
+    <div id="concept-video" class="infoBar">
+
+      <div class="infoBar-content">
+          <span class="closeButton"> &times; </span>
+        <h2> concept video </h2>
+        <a href="file/assign4-deck.pdf"> slides </a>
+        <iframe src="https://player.vimeo.com/video/239084250" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+    <div id="lowfi-proto" class="infoBar">
+
+      <div class="infoBar-content">
+          <span class="closeButton"> &times; </span>
+        <h2> low-fi proto </h2>
+        <a href="file/assign5-deck.pdf"> slides </a>
+        <a href="file/assign5-writeup.pdf"> write-up </a>
+      </div>
+    </div>
+    <div id="medfi-proto" class="infoBar">
+
+      <div class="infoBar-content">
+        <span class="closeButton"> &times; </span>
+        <h2> med-fi proto </h2>
+        <a href="file/assign6-deck.pdf"> slides </a>
+        <iframe style="border: none;" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/MOOn99rBZCErHDYwGHR9BliV/med-fi?scaling=contain&node-id=2%3A731" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div id="heuristic-eval" class="infoBar">
+
+      <div class="infoBar-content">
+        <span class="closeButton"> &times; </span>
+        <h2> heuristic evaluation </h2>
+        <a href="file/heuristic-eval.pdf"> pdf (reviewed by studio) </a>
+      </div>
+    </div>
+    <div id="hifi-proto" class="infoBar">
+
+      <div class="infoBar-content">
+        <span class="closeButton"> &times; </span>
+        <h2> high-fi proto </h2>
+      </div>
+    </div>
+    <div id="pitch-poster" class="infoBar">
+
+      <div class="infoBar-content">
+        <span class="closeButton"> &times; </span>
+        <h2> pitch + poster </h2>
+      </div>
+    </div>
     <!-- Page Content -->
     <div class="container">
       <div class="row">
