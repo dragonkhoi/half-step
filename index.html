@@ -35,77 +35,96 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">half step</a>
+        <a class="navbar-brand dropdown-hover-text" href="#">half step</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
+            <li class="nav-item">
+              <div class="dropdown-hover">
+                <a class="nav-link dropdown-hover-text">About</a>
+                <div class="dropdown-content">
+                  <p><b> half step - learn music one step at a time </b></p>
+                  <p> We are <b> half step</b>. Music practice can be unfocused, filled with self-doubt, lonely, and disconnected from your goals and dreams.
+                  half step helps you climb higher by providing bite-sized tasks, near-peer support, and progress tracking.
+                  </p>
+                  <!-- <p> Made for Stanford CS147: Introduction to Human-Computer Interaction Design: dt + UX: Design Thinking for User Experience Design, Prototyping and Evaluations </p> -->
+                </div>
+              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#prototype">Prototype</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#team">Team</a>
+              <div class="dropdown-hover">
+                <a class="nav-link dropdown-hover-text">Team</a>
+                <div class="dropdown-content">
+                    <div class="person-label"> Khoi Le </div>
+                    <div class="person-label"> Stefan Swaans </div>
+                    <div class="person-label"> David Mora </div>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+    <div id="loading-screen">
+      <p> Loading. . . </p>
+    </div>
     <canvas id="myCanvas" style="width: 100%; height:100%" resize>
 
     </canvas>
     <div id="needfinding" class="infoBar">
-
       <div class="infoBar-content">
         <span class="closeButton"> &times; </span>
         <h2> needfinding </h2>
-        <!-- <img src="img/needfinding.png"></img> -->
-        <a href="file/assign1-deck.pdf"> slides </a>
+        <p> Results from initial needfinding interviews with local musicians and music instructors. People needed confidence, camaraderie, and chunks of learning. </p>
+        <a class="file-link" href="file/assign1-deck.pdf"> slides </a> <br>
+        <img src="img/needfinding_1.jpg"></img>
       </div>
 
     </div>
     <div id="exp-proto" class="infoBar">
-
       <div class="infoBar-content">
           <span class="closeButton"> &times; </span>
         <h2> experience proto </h2>
-        <a href="file/assign2-deck.pdf"> slides </a>
-        <a href="file/assign2-writeup.pdf"> write-up </a>
+        <p> Results from three experience prototypes: Inner Wolf Battle, Musical Pokemon, and A Cappella Escape the Room. </p>
+        <a class="file-link" href="file/assign2-deck.pdf"> slides </a>
+        <a class="file-link" href="file/assign2-writeup.pdf"> write-up </a>
+        <img src="img/musical_pokemon.PNG"></img>
       </div>
     </div>
     <div id="concept-video" class="infoBar">
-
       <div class="infoBar-content">
           <span class="closeButton"> &times; </span>
-        <h2> concept video </h2>
-        <a href="file/assign4-deck.pdf"> slides </a>
-        <iframe src="https://player.vimeo.com/video/239084250" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <h2> concept video </h2>
+          <p> Video to demonstrate the concept of halfstep's three main tasks: have new goals outlined for you, see progress, and find a friend to work with. </p>
+
+        <a class="file-link" href="file/assign4-deck.pdf"> slides </a>
+        <br>
+        <iframe id="concept-video-frame" src="https://player.vimeo.com/video/239084250" width="640" height="360" frameborder="0" class="center-iframe" webkitallowfullscreen mozallowfullscreen allowfullscreen style="margin: 0 auto;"></iframe>
       </div>
     </div>
     <div id="lowfi-proto" class="infoBar">
-
       <div class="infoBar-content">
           <span class="closeButton"> &times; </span>
         <h2> low-fi proto </h2>
-        <a href="file/assign5-deck.pdf"> slides </a>
-        <a href="file/assign5-writeup.pdf"> write-up </a>
+        <p> Low fidelity protoype built with post-it notes focused on halfstep's three main tasks: have new goals outlined for you, see progress, and find a friend to work with. </p>
+        <a class="file-link" href="file/assign5-deck.pdf"> slides </a>
+        <a class="file-link" href="file/assign5-writeup.pdf"> write-up </a>
+        <img src="img/lowfi.jpg"></img>
+
       </div>
     </div>
-    <div id="medfi-proto" class="infoBar">
-
+    <div id="medfi-proto" class="infoBar" style="display: block">
       <div class="infoBar-content">
         <span class="closeButton"> &times; </span>
         <h2> med-fi proto </h2>
-        <a href="file/assign6-deck.pdf"> slides </a>
-        <iframe style="border: none;" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/MOOn99rBZCErHDYwGHR9BliV/med-fi?scaling=contain&node-id=2%3A731" allowfullscreen></iframe>
+        <p> Medium fidelity prototype built in Figma focused on a circle themed progression interface and halfstep's three revised main tasks: have new goals outlined for you, see progress, and be inspired by friends. </p>
+        <a class="file-link"  href="file/assign6-deck.pdf"> slides </a>
+        <a class="file-link"  href="file/halfstep-medfi-readme.pdf"> README </a>
+
+        <iframe style="border: none;" width="90%" height="70%" class="center-iframe" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/MOOn99rBZCErHDYwGHR9BliV/med-fi?scaling=contain&node-id=2%3A731" allowfullscreen></iframe>
+        <!-- <iframe style="border: none;" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/MOOn99rBZCErHDYwGHR9BliV/med-fi?scaling=contain&node-id=2%3A731" allowfullscreen></iframe> -->
       </div>
     </div>
     <div id="heuristic-eval" class="infoBar">
@@ -113,7 +132,11 @@
       <div class="infoBar-content">
         <span class="closeButton"> &times; </span>
         <h2> heuristic evaluation </h2>
-        <a href="file/heuristic-eval.pdf"> pdf (reviewed by studio) </a>
+        <p> Results from heuristic evaluation of medium fidelity prototype done by section members. </p>
+        <a class="file-link" href="file/heuristic-eval.pdf"> pdf </a>
+        <br>
+        <img src="img/heuristic-eval-table.PNG"></img>
+
       </div>
     </div>
     <div id="hifi-proto" class="infoBar">
@@ -121,6 +144,8 @@
       <div class="infoBar-content">
         <span class="closeButton"> &times; </span>
         <h2> high-fi proto </h2>
+        <p> High fidelity iOS prototype built with XCode and Swift. </p>
+        <a class="file-link" href="#"> coming soon </a>
       </div>
     </div>
     <div id="pitch-poster" class="infoBar">
@@ -128,50 +153,8 @@
       <div class="infoBar-content">
         <span class="closeButton"> &times; </span>
         <h2> pitch + poster </h2>
-      </div>
-    </div>
-    <!-- Page Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h1 class="mt-5">half step</h1>
-          <p class="lead">learn music one step at a time</p>
-
-          <iframe src="https://player.vimeo.com/video/239084250" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/239084250">half step</a> from <a href="https://vimeo.com/user72985346">Khoi Le</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-        </div>
-      </div>
-      <div class="row">
-        <a name="about"></a>
-        <div class="col-lg-12 text-center">
-          <h2> About </h2>
-          <p> We are <b> half step</b>. Music practice can be unfocused, filled with self-doubt, lonely, and disconnected from your goals and dreams.
-    half step helps you climb higher by providing bite-sized tasks, near-peer support, and progress tracking.
-     </p>
-        </div>
-      </div>
-      <div class="row">
-        <a name="prototype"></a>
-        <div class="col-lg-12 text-center">
-          <h2> Prototype </h2>
-          <a href="file/assign6-deck.pdf"> Assignment 6 Deck </a> <br>
-          <a href="file/halfstep-medfi-readme.pdf"> README </a> <br>
-          <iframe style="border: none;" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/MOOn99rBZCErHDYwGHR9BliV/med-fi?scaling=contain&node-id=2%3A731" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="row">
-        <a name="team"></a>
-        <div class="col-lg-12 text-center">
-          <h2> Team </h2>
-          <p> Khoi Le, Stefan Swaans, David Mora </p>
-        </div>
-      </div>
-      <div class="row">
-        <a name="cs147"></a>
-        <div class="col-lg-12 text-center">
-          <h2> Made for CS147 Fall 2017 </h2>
-          <p> Introduction to Human-Computer Interaction Design: dt + UX: Design Thinking for User Experience Design, Prototyping and Evaluations </p>
-        </div>
+        <p> Poster and pitch for demo day. </p>
+        <a class="file-link" href="#"> coming soon </a>
       </div>
     </div>
 

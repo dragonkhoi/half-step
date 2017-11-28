@@ -40,6 +40,32 @@ var infoBars = [
   document.getElementById("pitch-poster")
 ]
 
+var videoIFrame = document.getElementById("concept-video-frame");
+
+var closeButtons =[
+  document.getElementsByClassName("closeButton")[0],
+  document.getElementsByClassName("closeButton")[1],
+  document.getElementsByClassName("closeButton")[2],
+  document.getElementsByClassName("closeButton")[3],
+  document.getElementsByClassName("closeButton")[4],
+  document.getElementsByClassName("closeButton")[5],
+  document.getElementsByClassName("closeButton")[6],
+  document.getElementsByClassName("closeButton")[7]
+]
+function closeCurrentInfoBar(){
+  if(currentInfoBar == infoBars[2]){
+    console.log("video");
+    videoIFrame.src = videoIFrame.src;
+  }
+  currentInfoBar.style.display = "none";
+  currentInfoBar = null;
+}
+window.onclick = function(event) {
+    if (event.target == currentInfoBar) {
+        closeCurrentInfoBar();
+    }
+}
+var loadingScreen = document.getElementById("loading-screen");
 var currentInfoBar = null;
 //audio files
 var cSound = new Audio("audio/middle-c.wav");
@@ -47,16 +73,21 @@ var dSound = new Audio("audio/middle-d.wav");
 var eSound = new Audio("audio/middle-e.wav");
 var fSound = new Audio("audio/middle-f.wav");
 var gSound = new Audio("audio/middle-g.wav");
-var keySounds = [cSound, dSound, eSound, fSound, gSound, cSound, cSound, cSound];
+var aSound = new Audio("audio/middle-a.wav");
+var bSound = new Audio("audio/middle-b.wav");
+var highCSound= new Audio("audio/high-c.wav");
+// sounds from jobro on FreeSound.org
+
+var keySounds = [cSound, dSound, eSound, fSound, gSound, aSound, bSound, highCSound];
 // on window resize
 view.onResize = function(event){
-  console.log("resize");
+  infoBars[4].style.display = "none";
+  loadingScreen.style.display = "none";
   WHITE_KEY_WIDTH = view.bounds.width / 8;
   WHITE_KEY_HEIGHT = view.bounds.height;
   BLACK_KEY_WIDTH = WHITE_KEY_WIDTH * 0.6;
   BLACK_KEY_OFFSET = WHITE_KEY_WIDTH - (BLACK_KEY_WIDTH/2);
   BLACK_KEY_HEIGHT = WHITE_KEY_HEIGHT * 0.6;
-  console.log(view.bounds.width);
   for(var i = 0; i < whiteKeys.length; i++){
     //infoBars[i].style.top = "" + BLACK_KEY_HEIGHT * 1.2 + "px";
     //infoBars[i].style.height = "" + BLACK_KEY_HEIGHT / 3 + "px";
@@ -64,7 +95,6 @@ view.onResize = function(event){
     whiteKeys[i].bounds.height = WHITE_KEY_HEIGHT;
     whiteKeys[i].position.x = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
     whiteKeys[i].bounds.y = -3 * roundSize.height;
-    console.log(-1*roundSize.height);
     lettersDrawn[i].fontSize = WHITE_KEY_WIDTH / 3;
     lettersDrawn[i].position.x = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
     lettersDrawn[i].position.y = WHITE_KEY_HEIGHT - 50 - (3*roundSize.height);
@@ -85,32 +115,44 @@ view.onResize = function(event){
 for(var i = 0; i < 8; i++){
   var whiteKey = new Rectangle(i*WHITE_KEY_WIDTH,0,WHITE_KEY_WIDTH,WHITE_KEY_HEIGHT);
   var whiteKeyDraw = new Path.RoundRectangle(whiteKey, roundSize);
-  infoBars[i].addEventListener("mouseleave", function (event){
-    this.style.display = "none";
-    currentInfoBar = null;
-  }, false);
   whiteKeyDraw.onClick = function(event){
-      keySounds[whiteKeys.indexOf(this)].play();
+    var thisIndex = whiteKeys.indexOf(this)
+      keySounds[thisIndex].play();
       if(currentInfoBar != null){
         currentInfoBar.style.display = "none";
       }
-      currentInfoBar = infoBars[whiteKeys.indexOf(this)];
-      infoBars[whiteKeys.indexOf(this)].style.display = "block";
+      currentInfoBar = infoBars[thisIndex];
+      infoBars[thisIndex].style.display = "block";
   }
+  closeButtons[i].onclick = closeCurrentInfoBar;
   whiteKeyDraw.onMouseEnter = function(event){
       //this.fillColor = animateKeys[whiteKeys.indexOf(this)][1];
-      animateKeys[whiteKeys.indexOf(this)][0] = true;
-      if(animateKeys[whiteKeys.indexOf(this)][3] < 0){
-        animateKeys[whiteKeys.indexOf(this)][3] *= -1;
+      var thisIndex = whiteKeys.indexOf(this);
+      animateKeys[thisIndex][0] = true;
+      if(animateKeys[thisIndex][3] < 0){
+        animateKeys[thisIndex][3] *= -1;
       }
   }
   whiteKeyDraw.onMouseLeave = function(event){
       //this.fillColor = whiteKeyStyle.fillColor;
-      animateKeys[whiteKeys.indexOf(this)][0] = false;
-      if(animateKeys[whiteKeys.indexOf(this)][3] > 0){
-        animateKeys[whiteKeys.indexOf(this)][3] *= -1;
+      var thisIndex = whiteKeys.indexOf(this);
+      animateKeys[thisIndex][0] = false;
+      if(animateKeys[thisIndex][3] > 0){
+        animateKeys[thisIndex][3] *= -1;
       }
   }
+  // whiteKeyDraw.onFrame = function(event){
+  //   var thisIndex = whiteKeys.indexOf(this);
+  //   if(animateKeys[thisIndex][0] && animateKeys[thisIndex][3] > 0){
+  //     animateKeys[thisIndex][2] += animateKeys[whiteKeys.indexOf(this)][3];
+  //     var lerpColor = whiteKeyStyle.fillColor + ((animateKeys[whiteKeys.indexOf(this)][1] - whiteKeys[whiteKeys.indexOf(this)].fillColor) * animateKeys[whiteKeys.indexOf(this)][2]);
+  //     whiteKeys[whiteKeys.indexOf(this)].fillColor = lerpColor;
+  //     if(animateKeys[i][2] >= 1 && animateKeys[i][3] > 0){
+  //       animateKeys[i][2] = 1;
+  //       animateKeys[i][3] *= -1.0;
+  //     }
+  //   }
+  // }
   whiteKeyDraw.style = whiteKeyStyle;
   var textLetter = new PointText(i*WHITE_KEY_WIDTH, WHITE_KEY_HEIGHT - 50);
   textLetter.fillColor = '#444444';
@@ -141,6 +183,9 @@ for(var i = 0; i < 8; i++){
 }
  // runs every frame
 function onFrame(event){
+  if(currentInfoBar != null){
+    return;
+  }
   for(var i = 0; i < animateKeys.length; i++){
     if(animateKeys[i][0] && animateKeys[i][3] > 0){
       animateKeys[i][2] += animateKeys[i][3];
@@ -148,7 +193,6 @@ function onFrame(event){
       whiteKeys[i].fillColor = lerpColor;
       if(animateKeys[i][2] >= 1 && animateKeys[i][3] > 0){
         animateKeys[i][2] = 1;
-        console.log("stap");
         animateKeys[i][3] *= -1.0;
       }
     }
@@ -158,7 +202,6 @@ function onFrame(event){
         var lerpColor = whiteKeyStyle.fillColor + ((animateKeys[i][1] - whiteKeys[i].fillColor) * animateKeys[i][2]);
         whiteKeys[i].fillColor = lerpColor;
         if(animateKeys[i][2] <= 0 && animateKeys[i][3] < 0){
-          console.log("STAHPP");
           //animateKeys[i][1] *= -1;
           animateKeys[i][2] = 0;
           animateKeys[i][3] *= -1;
