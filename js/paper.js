@@ -78,38 +78,76 @@ var bSound = new Audio("audio/middle-b.wav");
 var highCSound= new Audio("audio/high-c.wav");
 // sounds from jobro on FreeSound.org
 
+var thisCanvas = document.getElementById("myCanvas");
+var context = thisCanvas.getContext("2d");
+
 var keySounds = [cSound, dSound, eSound, fSound, gSound, aSound, bSound, highCSound];
 // on window resize
 view.onResize = function(event){
+
   infoBars[4].style.display = "none";
   loadingScreen.style.display = "none";
-  WHITE_KEY_WIDTH = view.bounds.width / 8;
-  WHITE_KEY_HEIGHT = view.bounds.height;
-  BLACK_KEY_WIDTH = WHITE_KEY_WIDTH * 0.6;
-  BLACK_KEY_OFFSET = WHITE_KEY_WIDTH - (BLACK_KEY_WIDTH/2);
-  BLACK_KEY_HEIGHT = WHITE_KEY_HEIGHT * 0.6;
-  for(var i = 0; i < whiteKeys.length; i++){
-    //infoBars[i].style.top = "" + BLACK_KEY_HEIGHT * 1.2 + "px";
-    //infoBars[i].style.height = "" + BLACK_KEY_HEIGHT / 3 + "px";
-    whiteKeys[i].bounds.width = WHITE_KEY_WIDTH;
-    whiteKeys[i].bounds.height = WHITE_KEY_HEIGHT;
-    whiteKeys[i].position.x = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
-    whiteKeys[i].bounds.y = -3 * roundSize.height;
-    lettersDrawn[i].fontSize = WHITE_KEY_WIDTH / 3;
-    lettersDrawn[i].position.x = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
-    lettersDrawn[i].position.y = WHITE_KEY_HEIGHT - 50 - (3*roundSize.height);
-    labelsDrawn[i].fontSize = WHITE_KEY_WIDTH / 4;
-    labelsDrawn[i].position.x = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
-    labelsDrawn[i].bounds.y = 30;
-  }
-  for(var i = 0; i < blackKeys.length; i++){
-    if(blackKeys[i] != null){
-      blackKeys[i].bounds.width = BLACK_KEY_WIDTH;
-      blackKeys[i].bounds.height = BLACK_KEY_HEIGHT;
-      blackKeys[i].bounds.y = -3 * roundSize.height; //-1 * roundSize;
-      blackKeys[i].position.x = (i + 1) * WHITE_KEY_WIDTH; // + BLACK_KEY_OFFSET;
+  if(view.bounds.width > 700){
+    WHITE_KEY_WIDTH = view.bounds.width / 8;
+    WHITE_KEY_HEIGHT = view.bounds.height - 20;
+    BLACK_KEY_WIDTH = WHITE_KEY_WIDTH * 0.55;
+    BLACK_KEY_OFFSET = WHITE_KEY_WIDTH - (BLACK_KEY_WIDTH/2);
+    BLACK_KEY_HEIGHT = WHITE_KEY_HEIGHT * 0.6;
+    for(var i = 0; i < whiteKeys.length; i++){
+      //infoBars[i].style.top = "" + BLACK_KEY_HEIGHT * 1.2 + "px";
+      //infoBars[i].style.height = "" + BLACK_KEY_HEIGHT / 3 + "px";
+      whiteKeys[i].bounds.width = WHITE_KEY_WIDTH;
+      whiteKeys[i].bounds.height = WHITE_KEY_HEIGHT;
+      whiteKeys[i].position.x = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
+      whiteKeys[i].bounds.y = -3 * roundSize.height;
+      lettersDrawn[i].fontSize = WHITE_KEY_WIDTH / 3;
+      lettersDrawn[i].position.x = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
+      lettersDrawn[i].position.y = (WHITE_KEY_HEIGHT * 0.9) - (3*roundSize.height);
+      labelsDrawn[i].fontSize = WHITE_KEY_WIDTH / 4;
+      labelsDrawn[i].position.x = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
+      labelsDrawn[i].bounds.y = 30;
+    }
+    for(var i = 0; i < blackKeys.length; i++){
+      if(blackKeys[i] != null){
+        blackKeys[i].bounds.width = BLACK_KEY_WIDTH;
+        blackKeys[i].bounds.height = BLACK_KEY_HEIGHT;
+        blackKeys[i].bounds.y = -3 * roundSize.height; //-1 * roundSize;
+        blackKeys[i].position.x = (i + 1) * WHITE_KEY_WIDTH; // + BLACK_KEY_OFFSET;
+      }
     }
   }
+  else {
+    WHITE_KEY_WIDTH = view.bounds.height / 8;
+    WHITE_KEY_HEIGHT = view.bounds.width - 20;
+    BLACK_KEY_WIDTH = WHITE_KEY_WIDTH * 0.6;
+    BLACK_KEY_OFFSET = WHITE_KEY_WIDTH - (BLACK_KEY_WIDTH/2);
+    BLACK_KEY_HEIGHT = WHITE_KEY_HEIGHT * 0.6;
+    for(var i = 0; i < whiteKeys.length; i++){
+      //infoBars[i].style.top = "" + BLACK_KEY_HEIGHT * 1.2 + "px";
+      //infoBars[i].style.height = "" + BLACK_KEY_HEIGHT / 3 + "px";
+      whiteKeys[i].bounds.height = WHITE_KEY_WIDTH;
+      whiteKeys[i].bounds.width = WHITE_KEY_HEIGHT;
+      whiteKeys[i].position.y = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
+      whiteKeys[i].bounds.x = -3 * roundSize.height;
+      lettersDrawn[i].fontSize = WHITE_KEY_WIDTH / 3;
+      lettersDrawn[i].position.y = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
+      lettersDrawn[i].position.x = (WHITE_KEY_HEIGHT * 0.9) - (3*roundSize.height);
+      labelsDrawn[i].fontSize = WHITE_KEY_WIDTH / 4;
+      labelsDrawn[i].position.y = i * WHITE_KEY_WIDTH + (WHITE_KEY_WIDTH/2);
+      labelsDrawn[i].bounds.x = 30;
+    }
+    for(var i = 0; i < blackKeys.length; i++){
+      if(blackKeys[i] != null){
+        blackKeys[i].bounds.height = BLACK_KEY_WIDTH;
+        blackKeys[i].bounds.width = BLACK_KEY_HEIGHT;
+        blackKeys[i].bounds.x = -3 * roundSize.height; //-1 * roundSize;
+        blackKeys[i].position.y = (i + 1) * WHITE_KEY_WIDTH; // + BLACK_KEY_OFFSET;
+      }
+    }
+  }
+
+  //context.translate(thisCanvas.width/2, thisCanvas.height / 2);
+  //context.rotate(Math.PI / 4);
 }
 // draw white keys
 for(var i = 0; i < 8; i++){
@@ -158,13 +196,15 @@ for(var i = 0; i < 8; i++){
   textLetter.fillColor = '#444444';
   textLetter.content = letters[i];
   textLetter.off({mouseenter: true});
-  textLetter.fontFamily = "Segoe UI";
+  textLetter.fontFamily = "Montserrat"; //"Segoe UI";
   whiteKeyDraw.addChild(textLetter);
   var textLabel = new PointText(0*WHITE_KEY_WIDTH, WHITE_KEY_HEIGHT - 50);
   textLabel.fillColor = '#444444';
   textLabel.content = labels[i];
-  textLabel.fontFamily = "Segoe UI";
-  textLabel.matrix.rotate(90, 0, 0);
+  textLabel.fontFamily = "Montserrat";//"Segoe UI";
+  if(view.bounds.width > 700){
+    textLabel.matrix.rotate(90, 0, 0);
+  }
   labelsDrawn.push(textLabel);
   lettersDrawn.push(textLetter);
   whiteKeys.push(whiteKeyDraw);

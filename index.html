@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="img/half-step-logo-crop.ico">
 
     <title>half step</title>
 
@@ -14,6 +15,7 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="node_modules/paper/dist/paper-full.js"></script>
     <script type="text/paperscript" src="js/paper.js" canvas="myCanvas"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
     <!-- Custom styles for this template -->
     <style>
@@ -35,7 +37,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand dropdown-hover-text" href="#">half step</a>
+        <a class="navbar-brand dropdown-hover-text" href="#"><img src="img/half-step-logo-crop.png" style="height: 30px;"></img></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -47,7 +49,8 @@
                 <div class="dropdown-content">
                   <p><b> half step - learn music one step at a time </b></p>
                   <p> We are <b> half step</b>. Music practice can be unfocused, filled with self-doubt, lonely, and disconnected from your goals and dreams.
-                  half step helps you climb higher by providing bite-sized tasks, near-peer support, and progress tracking.
+                  half step helps you climb higher by providing bite-sized tasks, near-peer support, and progress tracking. half step is an iOS app that
+                  breaks down music practice into fun steps that will take you to the next level.
                   </p>
                   <!-- <p> Made for Stanford CS147: Introduction to Human-Computer Interaction Design: dt + UX: Design Thinking for User Experience Design, Prototyping and Evaluations </p> -->
                 </div>
@@ -57,9 +60,9 @@
               <div class="dropdown-hover">
                 <a class="nav-link dropdown-hover-text">Team</a>
                 <div class="dropdown-content">
-                    <div class="person-label"> Khoi Le </div>
-                    <div class="person-label"> Stefan Swaans </div>
-                    <div class="person-label"> David Mora </div>
+                    <div class="person-label"> Khoi Le - Developer </div>
+                    <div class="person-label"> Stefan Swaans - Developer </div>
+                    <div class="person-label"> David Mora - Developer </div>
                 </div>
               </div>
             </li>
@@ -70,7 +73,7 @@
     <div id="loading-screen">
       <p> Loading. . . </p>
     </div>
-    <canvas id="myCanvas" style="width: 100%; height:100%" resize>
+    <canvas id="myCanvas" style="width: 100%; height:100%;" resize>
 
     </canvas>
     <div id="needfinding" class="infoBar">
@@ -78,7 +81,11 @@
         <span class="closeButton"> &times; </span>
         <h2> needfinding </h2>
         <p> Results from initial needfinding interviews with local musicians and music instructors. People needed confidence, camaraderie, and chunks of learning. </p>
-        <a class="file-link" href="file/assign1-deck.pdf"> slides </a> <br>
+        <div class="file-link-bar">
+          <a class="file-link" href="file/assign1-deck.pdf"> slides pdf </a>
+          <a class="file-link" href="file/assign1-deck.pptx"> slides pptx </a>
+        </div>
+        <br>
         <img src="img/needfinding_1.jpg"></img>
       </div>
 
@@ -88,8 +95,11 @@
           <span class="closeButton"> &times; </span>
         <h2> experience proto </h2>
         <p> Results from three experience prototypes: Inner Wolf Battle, Musical Pokemon, and A Cappella Escape the Room. </p>
-        <a class="file-link" href="file/assign2-deck.pdf"> slides </a>
-        <a class="file-link" href="file/assign2-writeup.pdf"> write-up </a>
+        <div class="file-link-bar">
+          <a class="file-link" href="file/assign2-deck.pdf"> slides pdf </a>
+          <a class="file-link" href="file/assign2-deck.pptx"> slides pptx </a>
+          <a class="file-link" href="file/assign2-writeup.pdf"> write-up </a>
+        </div>
         <img src="img/musical_pokemon.PNG"></img>
       </div>
     </div>
@@ -98,8 +108,10 @@
           <span class="closeButton"> &times; </span>
           <h2> concept video </h2>
           <p> Video to demonstrate the concept of halfstep's three main tasks: have new goals outlined for you, see progress, and find a friend to work with. </p>
-
-        <a class="file-link" href="file/assign4-deck.pdf"> slides </a>
+          <div class="file-link-bar">
+            <a class="file-link" href="file/assign4-deck.pdf"> slides pdf </a>
+            <a class="file-link" href="file/assign4-deck.pptx"> slides pptx </a>
+          </div>
         <br>
         <iframe id="concept-video-frame" src="https://player.vimeo.com/video/239084250" width="640" height="360" frameborder="0" class="center-iframe" webkitallowfullscreen mozallowfullscreen allowfullscreen style="margin: 0 auto;"></iframe>
       </div>
@@ -109,8 +121,12 @@
           <span class="closeButton"> &times; </span>
         <h2> low-fi proto </h2>
         <p> Low fidelity protoype built with post-it notes focused on halfstep's three main tasks: have new goals outlined for you, see progress, and find a friend to work with. </p>
-        <a class="file-link" href="file/assign5-deck.pdf"> slides </a>
-        <a class="file-link" href="file/assign5-writeup.pdf"> write-up </a>
+        <div class="file-link-bar">
+          <a class="file-link" href="file/assign5-deck.pdf"> slides pdf </a>
+          <a class="file-link" href="file/assign5-deck.pptx"> slides pptx </a>
+          <a class="file-link" href="file/assign5-writeup.pdf"> write-up </a>
+        </div>
+        <br>
         <img src="img/lowfi.jpg"></img>
 
       </div>
@@ -120,9 +136,11 @@
         <span class="closeButton"> &times; </span>
         <h2> med-fi proto </h2>
         <p> Medium fidelity prototype built in Figma focused on a circle themed progression interface and halfstep's three revised main tasks: have new goals outlined for you, see progress, and be inspired by friends. </p>
-        <a class="file-link"  href="file/assign6-deck.pdf"> slides </a>
-        <a class="file-link"  href="file/halfstep-medfi-readme.pdf"> README </a>
-
+        <div class="file-link-bar">
+          <a class="file-link"  href="file/assign6-deck.pdf"> slides pdf </a>
+          <a class="file-link"  href="file/assign6-deck.pptx"> slides pptx </a>
+          <a class="file-link"  href="file/halfstep-medfi-readme.pdf"> README </a>
+        </div>
         <iframe style="border: none;" width="90%" height="70%" class="center-iframe" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/MOOn99rBZCErHDYwGHR9BliV/med-fi?scaling=contain&node-id=2%3A731" allowfullscreen></iframe>
         <!-- <iframe style="border: none;" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/MOOn99rBZCErHDYwGHR9BliV/med-fi?scaling=contain&node-id=2%3A731" allowfullscreen></iframe> -->
       </div>
@@ -133,7 +151,9 @@
         <span class="closeButton"> &times; </span>
         <h2> heuristic evaluation </h2>
         <p> Results from heuristic evaluation of medium fidelity prototype done by section members. </p>
-        <a class="file-link" href="file/heuristic-eval.pdf"> pdf </a>
+        <div class="file-link-bar">
+          <a class="file-link" href="file/heuristic-eval.pdf"> pdf </a>
+        </div>
         <br>
         <img src="img/heuristic-eval-table.PNG"></img>
 
@@ -145,7 +165,15 @@
         <span class="closeButton"> &times; </span>
         <h2> high-fi proto </h2>
         <p> High fidelity iOS prototype built with XCode and Swift. </p>
-        <a class="file-link" href="#"> coming soon </a>
+        <div class="file-link-bar">
+          <a class="file-link" href="file/halfstep.ipa"> high-fi ipa (iOS app file) </a>
+          <a class="file-link" href="file/high-fi-README.pdf"> README </a>
+          <a class="file-link" href="file/assign8-writeup.docx"> write-up docx </a>
+          <a class="file-link" href="file/assign8-writeup.pdf"> write-up pdf </a>
+        </div>
+
+        <img src="img/highfi.jpg"></img>
+
       </div>
     </div>
     <div id="pitch-poster" class="infoBar">
@@ -154,7 +182,12 @@
         <span class="closeButton"> &times; </span>
         <h2> pitch + poster </h2>
         <p> Poster and pitch for demo day. </p>
-        <a class="file-link" href="#"> coming soon </a>
+        <div class="file-link-bar">
+          <a class="file-link" href="file/poster.pdf"> poster </a>
+          <a class="file-link" href="file/pitch-slide.pdf"> pitch slide </a>
+        </div>
+        <img src="img/pitch.PNG"></img>
+
       </div>
     </div>
 
